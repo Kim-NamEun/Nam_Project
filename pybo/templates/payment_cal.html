@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Nam. 급여 계산기</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+
+	<meta name="format-detection" content="telephone=no">
+	<meta name="msapplication-TitleImage" content="//image.alba.kr/m/homeIcon_192.png">
+	<meta name="referrer" content="always">
+
+	<link rel="stylesheet" href="{{ url_for('static', filename='CSS/nam_style.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='CSS/sub.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='CSS/story.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='CSS/repute.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='CSS/set.css') }}">
+
+
+	<script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-XZ5QVHZ0JM&amp;l=dataLayer&amp;cx=c"></script>
+	<script type="text/javascript" async="" src="http://www.google-analytics.com/plugins/ua/ecommerce.js"></script>
+	<script async="" src="//www.google-analytics.com/analytics.js"></script>
+
+	<meta http-equiv="origin-trial" content="A727AcAeLCei/ZogJHBlJUS63SxP6AeIROo7qXrkjrxkoxBu0eSSmypAHmGYwk4HjBMQp5nxCFODzfVnUIe31AQAAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjg4MDgzMTk5LCJpc1RoaXJkUGFydHkiOnRydWV9">
+	<meta http-equiv="origin-trial" content="A727AcAeLCei/ZogJHBlJUS63SxP6AeIROo7qXrkjrxkoxBu0eSSmypAHmGYwk4HjBMQp5nxCFODzfVnUIe31AQAAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjg4MDgzMTk5LCJpc1RoaXJkUGFydHkiOnRydWV9">
+	<script type="text/javascript" async="" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/874558621/?random=1684210586548&amp;cv=11&amp;fst=1684210586548&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;gtm=45be35a0&amp;u_w=2560&amp;u_h=1080&amp;url=http%3A%2F%2Fm.alba.co.kr%2Fstory%2Fcalculator.asp&amp;ref=https%3A%2F%2Fwww.google.com%2F&amp;hn=www.googleadservices.com&amp;frm=0&amp;tiba=%EA%B8%89%EC%97%AC%EA%B3%84%EC%82%B0%EA%B8%B0%20-%20%EC%95%8C%EB%B0%94%EC%B2%9C%EA%B5%AD&amp;auid=1332474641.1684210587&amp;data=event%3Dgtag.config&amp;rfmt=3&amp;fmt=4"></script>
+</head>
+
+
+<body id="Calculator" class="story sub additional-service">
+	<form method="POST" action="/payment_cal">
+
+		<input type="hidden" id="adultCertYn" value="N">
+		<input type="hidden" id="device" value="">
+		<input type="hidden" id="version" value="">
+		<input type="hidden" id="appname" value="">
+		<input type="hidden" id="JOBSCH" value="">
+		<input type="hidden" id="oldappyn" value="N">
+		<input type="hidden" id="nativelogin" value="">
+		<input type="hidden" id="mbizlogin" value="">
+		<input type="hidden" id="biz_oldappyn" value="N">
+
+		<script src="{{ url_for('static', filename='js/key_up_fix.js') }}"></script>
+
+		<!-- Section -->
+		<section id="Section">
+			<div class="headerWrap">
+				<h1>알바 급여 계산기 ver.2</h1>
+				<div class="submitAction">
+				</div>
+			</div>
+
+	<article id="Contents">
+		<div class="message-panel message-panel__icon calculator">
+			<h2 class="message-panel__text">2023년 최저시급 <span class="point-color">9,620</span>원<br>입니다.</h2>
+		</div>
+
+		<form name="calForm" method="post">
+			<input type="hidden" name="strPaycd" id="strPaycd" value="0" />
+			<input type="hidden" name="intPayOrigin" id="intPayOrigin" value="" />
+			<input type="hidden" name="intWorkTime" id="intWorkTime" value="0" />
+			<input type="hidden" name="intWorkWeek" id="intWorkWeek" value="0" />
+
+			<div class="calculator__setting">
+				<div class="calculator__select">
+					<select id="payTypeBefore" name="payTypeBefore" title="급여 형태" onchange="getpayTypeAfter(this.value,'');reCalculate();">
+						<option value="1">시급</option>
+						<option value="2">일급</option>
+						<option value="3">주급</option>
+						<option value="4">월급</option>
+						<option value="5">연봉</option>
+					</select>
+					<select id="payTypeAfter" name="payTypeAfter" title="급여 형태" onchange="getpayTypeAfter($('#payTypeBefore').val(), $(this).val());reCalculate()"></select>
+				</div>
+
+				<div id="PCal_cont" class="calculator__setup">
+					<ul class="calculator__setup-list">
+						<li>
+							<div id="payment" class="item_term">
+								시급
+							</div>
+							<div class="item_description write-pay__input">
+								<input type="number" inputmode="numeric" pattern="[0-9]*" id="payOrigin" title="값을 입력하세요" onkeyup="RePayCalculate();">
+								<span class="pay-unit">원</span>
+								<span id="payOriginAlert" class="calculator__setup-alert"></span>
+							</div>
+						</li>
+						<li id="li_perDay">
+							<div class="item_term">
+								<div class="tooltip">
+									<span class="tooltip__title">일일 근무시간</span>
+									<div class="tooltip__button-wrap">
+										<a href="javascript:void(0);" class="tooltip__button" onclick="$(this).parents('.tooltip').addClass('on');">도움말</a>
+
+										<div class="tooltip-explain">
+											<div class="tooltip-explain__contents">
+												<p class="tooltip-explain__contents-title">일일 근무시간</p>
+												휴게시간을 제외한 근무시간
+											</div>
+											<button type="button" onclick="$(this).parents('.tooltip').removeClass('on');" class="tooltip-explain__close">닫기</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="item_description">
+								<select id="perDay" name="perDay" title="일일 근무시간 선택" style="ime-mode:active;" onchange="reCalculate();">
+									<option value="">선택</option>
+								</select>
+								<span id="perDayAlert" class="calculator__setup-alert"></span>
+							</div>
+						</li>
+						<li id="li_perWeek">
+							<div class="item_term">
+								일주 근무일수
+							</div>
+							<div class="item_description">
+								<select id="perWeek" name="perWeek" title="일주 근무일수 선택" style="ime-mode:active;" onchange="reCalculate();">
+									<option value="">선택</option>
+								</select>
+								<span id="perWeekAlert" class="calculator__setup-alert"></span>
+							</div>
+						</li>
+						<li id="li_perMonth">
+							<div class="item_term">
+								한달 근무일수
+							</div>
+							<div class="item_description">
+								<select id="perMonth" name="perMonth" title="한달 근무일수 선택" style="ime-mode:active;" onchange="reCalculate();">
+									<option value="">선택</option>
+								</select>
+								<span id="perMonthAlert" class="calculator__setup-alert"></span>
+							</div>
+						</li>
+						<li id="li_perWeekOvertime">
+							<div class="item_term">
+								주 연장 근무 시간
+								<a href="#ModalLayerOvertime" class="icon-help" onclick="$('#ModalLayerOvertime').show();return false;">?</a>
+							</div>
+							<div class="item_description">
+								<select id="perWeekOvertime" name="perWeekOvertime" title="주 연장 근무 시간 선택" style="ime-mode:active;" onchange="reCalculate();">
+									<option value="">선택</option>
+								</select>
+							</div>
+						</li>
+						<li id="li_perMonthOvertime">
+							<div class="item_term">
+								월 연장 근무 시간
+								<a href="#ModalLayerOvertime" class="icon-help" onclick="$('#ModalLayerOvertime').show();return false;">?</a>
+							</div>
+							<div class="item_description">
+								<select id="perMonthOvertime" name="perMonthOvertime" title="월 연장 근무 시간 선택" style="ime-mode:active;" onchange="reCalculate();">
+									<option value="">선택</option>
+								</select>
+							</div>
+						</li>
+						<!--
+						<li id="li_perYear"><span class="item">근무개월수</span>
+							<select id="perYear" name="perYear" style="ime-mode:active;">
+								<option value="">선택</option>
+							</select>
+						</li>
+						-->
+						<li class="holiday">
+							<div class="item_term">
+								주휴수당
+								<a href="#ModalLayerHoliday" class="icon-help" onclick="$('#ModalLayerHoliday').show();return false;">?</a>
+							</div>
+							<div class="item_description">
+								<input type="radio" name="holidayPay" id="holidayPayN" class="hide" value="N" /> <label for="holidayPayN">미포함</label>
+								<input type="radio" name="holidayPay" id="holidayPayY" class="hide" value="Y" checked="checked" /> <label for="holidayPayY">포함</label>
+							</div>
+						</li>
+						<li class="tax">
+							<div class="item_term">
+								세금
+								<a href="#ModalLayerTax" class="icon-help" onclick="$('#ModalLayerTax').show();return false;">?</a>
+							</div>
+							<div class="item_description">
+								<select id="tax1" name="tax1" title="세금 비율" style="ime-mode:active;" onchange="reCalculate();">
+									<option value="0">미적용</option>
+									<option value="0.094">9.4%</option>
+									<option value="0.033">3.3%</option>
+								</select>
+							</div>
+						</li>
+						<li class="probation">
+							<div class="item_term">
+								<div class="tooltip">
+									<span class="tooltip__title">수습</span>
+									<div class="tooltip__button-wrap">
+										<a href="javascript:void(0);" class="tooltip__button" onclick="$(this).parents('.tooltip').addClass('on');">도움말</a>
+
+										<div class="tooltip-explain">
+											<div class="tooltip-explain__contents">
+												<p class="tooltip-explain__contents-title">수습적용</p>
+												예상 급여액의 10% 차감
+											</div>
+											<button type="button" onclick="$(this).parents('.tooltip').removeClass('on');" class="tooltip-explain__close">닫기</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="item_description">
+								<input type="radio" name="probation" id="probation_no" class="hide" value="0" checked="checked" /><label for="probation_no">미적용</label>
+								<input type="radio" name="probation" id="probation_yes" class="hide" value="1" /><label for="probation_yes">적용</label>
+							</div>
+						</li>
+					</ul>
+					<div class="calculator_btnwrap">
+						<a href="#" class="additional-service__btn full additional-service__btn--action calculator__setup-submit" onclick="calculate();return false;">계산하기</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="calculator__result" style="display:none">
+				<div class="calculator__result-rows">
+					<div id="cal1" class="calculator__result-item">예상 시급</div>
+					<div id="cal2" class="calculator__result-item">예상 일급</div>
+					<div id="cal3" class="calculator__result-item">예상 주급</div>
+					<div id="cal4" class="calculator__result-item">예상 월급</div>
+					<div id="cal5" class="calculator__result-item">예상 연봉</div>
+					<div class="calculator__result-pay">
+						<span class="calculator__result-price" id="payResult"></span> 원
+					</div>
+				</div>
+				<div class="calculator__result-rows">
+					<div class="calculator__result-item">예상 주휴수당</div>
+					<div class="calculator__result-pay">
+						<span class="calculator__result-space calculator__result-space--holiday">(+)</span>
+						<span class="calculator__result-price" id="payResultHoliday"></span>
+						<span class="calculator__result-space calculator__result-space--holiday">원</span>
+					</div>
+				</div>
+				<div class="calculator__result-rows" id="WeekOvertime">
+					<div class="calculator__result-item">예상 주 연장 수당</div>
+					<div class="calculator__result-pay">
+						<span class="calculator__result-space">(+)</span>
+						<span class="calculator__result-price" id="payResultWeekOvertime">0</span>
+						<span class="calculator__result-space">원</span>
+					</div>
+				</div>
+				<div class="calculator__result-rows" id="MonthOvertime">
+					<div class="calculator__result-item">예상 월 연장 수당</div>
+					<div class="calculator__result-pay">
+						<span class="calculator__result-space">(+)</span>
+						<span class="calculator__result-price" id="payResultMonthOvertime">0</span>
+						<span class="calculator__result-space">원</span>
+					</div>
+				</div>
+				<div class="calculator__result-total">
+					<div class="calculator__result-item">최종 환산금액</div>
+					<div class="calculator__result-pay">
+						<span class="calculator__result-price" id="LastPay"></span> 원
+					</div>
+				</div>
+			</div>
+
+			<div class="reset__btnwrap" style="display: none">
+				<a href="#" class="additional-reset__btn"onclick="init_Clear('recal');return false;">초기화</a>
+			</div>
+
+			<ul class="bullet-list__info">
+				<li class="bullet-list__info-item">근무시간은 <em>사업주와 별도로 협의</em>된 사항이 없다면 <em>휴게시간을 제외하고 계산</em>해주세요.</li>
+				<li class="bullet-list__info-item">상기 급여는 한 달을 약 4.34주로 가정하여 계산한 예상 급여이며, 근로계약 조건에 따라 차이가 있을 수 있습니다. 정확한 급여는 사업장에 문의 하세요.</li>
+			</ul>
+
+			<div class="calculator__button-wrapper">
+				<a href="/story/CalculatorHoliday.asp" class="calculator__button calculator__button--holiday">주휴수당도 계산해 볼까요?</a>
+			</div>
+		</form>
+	</article>
+
+	<div id="ModalLayerOvertime" class="layer-pop">
+		<div class="filter"></div>
+		<div class="layer-pop__wrap">
+			<h1 class="layer-pop__title">연장 근로</h1>
+			<div class="layer-pop__contents">
+				<div class="additional-layer__content">
+					<p class="additional-layer__text">연장근로는 계약서상 정규 근로시간 이외에 초과하여 근로한 행위를 말합니다.</p>
+				</div>
+				<div class="additional-layer__content">
+					<h2 class="additional-layer__title">연장근로 계산하기</h2>
+					<p class="additional-layer__callout">(연장 근무시간 x 계약시급) x 1.5</p>
+					<ul class="bullet-list__info">
+						<li class="bullet-list__info-item">상시 근로자 수 5인 이상 사업장인 경우 통상 임금의 50%를 가산해서 지급</li>
+						<li class="bullet-list__info-item">(상시 근로자 수 5인 미만인 경우 통상임금만 지급)</li>
+					</ul>
+				</div>
+			</div>
+			<button type="button" class="layer-pop__close" onclick="formLayerClose();">레이어 닫기</button>
+		</div>
+	</div>
+
+	<div id="ModalLayerHoliday" class="layer-pop">
+		<div class="filter"></div>
+		<div class="layer-pop__wrap">
+			<h1 class="layer-pop__title">주휴수당</h1>
+			<div class="layer-pop__contents">
+				<div class="additional-layer__content">
+					<dl>
+						<dt class="additional-layer__title">주휴수당이란?</dt>
+						<dd class="additional-layer__text">1주일 15시간 이상 소정의 근로일 수를 개근하면 지급되는 수당</dd>
+
+						<dt class="additional-layer__title">주휴수당 지급 대상자</dt>
+						<dd class="additional-layer__text">일주일 동안 15시간 이상 '개근'한 모든 근로자</dd>
+
+						<dt class="additional-layer__title">주휴수당 계산 (1주 기준)</dt>
+						<dd class="additional-layer__text">
+							<div class="additional-layer__callout">
+								(1주일 총 일한시간 / 40시간 ) x 8 x 시급
+							</div>
+							단, 40시간 이상 근무한 경우에도 최대 40시간 까지만 계산 되어 적용 됩니다.
+						</dd>
+
+						<dt class="additional-layer__title">주휴수당 지급 기준 시간이 최대 40시간인 이유는?</dt>
+						<dd class="additional-layer__text">만 18세 이상 성인근로자의 경우 법정근로시간이 1일 8시간, 1주일 40시간을 의미하기 때문입니다. 법정근로시간에 따라 주휴수당은 최대 40시간까지 계산 가능합니다.</dd>
+					</dl>
+					<ul class="bullet-list__info line-top">
+						<li class="bullet-list__info-item">주휴수당에 대해 좀 더 자세한 문의는 알바상담센터에서 확인하세요.</li>
+					</ul>
+				</div>
+			</div>
+			<div class="layer-pop__action">
+				<a href="/story/LaborConsultList.asp" class="layer-pop__button" onclick="_lsCtrl.goInOutLink({'menunm':'알바상담',url:this.href,action:'NEW_WINDOW_TITLE'});return false;">알바상담센터 바로가기</a>
+			</div>
+			<button type="button" class="layer-pop__close" onclick="formLayerClose();">레이어 닫기</button>
+		</div>
+	</div>
+
+	<div id="ModalLayerTax" class="layer-pop">
+		<div class="filter"></div>
+		<div class="layer-pop__wrap">
+			<h1 class="layer-pop__title">세금공제</h1>
+			<div class="layer-pop__contents">
+				<div class="additional-layer__content">
+					<h2 class="additional-layer__title">1. 4대보험료 공제 9.4%</h2>
+					<p class="additional-layer__text">4대보험에 가입하여 세금을 적용할 경우, 공제되는 금액</p>
+					<table class="additional-layer__table">
+						<colgroup>
+							<col style="width:33.333%">
+							<col>
+							<col style="width:33.333%">
+						</colgroup>
+						<thead>
+							<tr>
+								<th scope="col">4대 보험</th>
+								<th scope="col">근로자(급여공제)</th>
+								<th scope="col">사업주</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>국민연금 (9%)</td>
+								<td>4.5%</td>
+								<td>4.5%</td>
+							</tr>
+							<tr>
+								<td>건강보험 (7.09%)</td>
+								<td>3.545%</td>
+								<td>3.545%</td>
+							</tr>
+							<tr>
+								<td>장기요양보험<br>(0.91%)</td>
+								<td>0.455%</td>
+								<td>0.455%</td>
+							</tr>
+							<tr>
+								<td>고용보험</td>
+								<td>0.9%</td>
+								<td>기업규모별 상이</td>
+							</tr>
+							<tr>
+								<td>산재보험</td>
+								<td>없음<br>(전액회사부담)</td>
+								<td>업종별 상이</td>
+							</tr>
+						</tbody>
+					</table>
+					<ul class="bullet-list__info">
+						<li class="bullet-list__info-item">주 15시간 (월 60시간) 미만 근로자는 4대보험 가입대상이 아닙니다.</li>
+					</ul>
+				</div>
+
+				<div class="additional-layer__content">
+					<h2 class="additional-layer__title">2. 소득세 공제 3.3%</h2>
+					<p class="additional-layer__callout">소득세 3% + 지방소득세 (소득세의 10%)</p>
+					<p class="additional-layer__text">소득세를 공제받은 경우, 5월 종합소득세 신고기간에 소득을 신고하여,신고금액에 따라 환급이 가능합니다.</p>
+					<ul class="bullet-list__info">
+						<li class="bullet-list__info-item">2023년도 기준이며, 각종 수당에 따라 계산되는 금액이 다를 수 있습니다.</li>
+					</ul>
+				</div>
+			</div>
+			<button type="button" class="layer-pop__close" onclick="formLayerClose();">레이어 닫기</button>
+		</div>
+	</div>
+
+</section>
+<!-- //section -->
+<hr />
+
+<script src="{{ url_for('static', filename='js/payment_cal_script.js') }}"></script>
+
+
+<!-- Footer
+<script>
+(function($) {
+	$(window).load(function() {
+		loadJS("/rsc/js/FooterCLS.js?202305151800", function() {});
+	});
+})(jQuery);
+</script>-->
+
+<article id="PR_Bottom" class="adBannerBottom">
+	<a href='https://map.kakao.com/info/kakao_map' style='display:block;background-color:#0099ff' onclick="_lsCtrl.goInOutLink({url:this.href,action:'EXTERNAL_BROWSER'});return false;"><img src='//image.alba.kr/adbanner/m_home/footer_kakao_328x72.png' alt='카카오맵 당신을 좋은 곳으로 이끌어줄지도' /></a>
+</article>
+
+<iframe id="hideFrame" name="hideFrame" src="about:blank" class="hide" title="빈 프레임"></iframe>
+
+
+
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XZ5QVHZ0JM"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'G-XZ5QVHZ0JM');
+</script>
+
+<!-- Global site tag (gtag.js) - Google Ads: 874558621 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-874558621"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'AW-874558621');
+</script>
+
+
+<!-- Alba Analytics Start -->
+<script src="//trk.alba.co.kr/TA.js?202305151800"></script>
+
+<script>
+	BA.Collect("VIEW", {
+		"servicetype":"MWEB"
+	,	"osversion":""
+	,	"category1":""
+	,	"category2":""
+	,	"category3":""
+	,	"category4":""
+	,	"category5":""
+	,	"refertype":""
+	,	"refersrc":""
+	,	"keyword":""
+	,	"refermedium":""
+	,	"refercampaign":""
+	,	"refercontent":""
+	,	"referterm":""
+	,	"referidx":""
+	,	"adid":""
+	,	"ordercd":""
+
+	});
+</script>
+
+<!-- //Alba Analytics End -->
+
+
+<!-- WIDERPLANET SCRIPT START -->
+<!--include virtual = "/rsc/inc/WiderScriptCode.inc" //-->
+<!-- WIDERPLANET SCRIPT END -->
+
+
+<!-- //Footer -->
+	</form>
+    {% if result %}
+        <p>결과: {{ result }}</p>
+    {% endif %}
+</body>
+</html>

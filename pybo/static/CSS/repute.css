@@ -1,0 +1,1434 @@
+@charset "utf-8"; /* 기업평판 - select , checkbox override */
+.layer-repute .select-format__contents select {
+    border-color: #d3dae6
+}
+
+.layer-repute .pop-box__choice-item input[type="checkbox"] + label {
+    padding: 0;
+    border: 1px solid #e1e7f0;
+    line-height: 44px;
+    color: #4d5260;
+    text-align: center
+}
+
+.layer-repute .pop-box__choice-item input[type="checkbox"] + label::before {
+    display: none
+}
+
+.layer-repute .pop-box__choice-item input[type="checkbox"]:checked + label {
+    border-color: #3396fe;
+    color: #2e89e5
+}
+
+/* 기업평판 Layer 공통 */
+.repute-full-layer {
+    overflow-y: scroll;
+    z-index: 999999;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding-top: 44px;
+    background: #fff
+}
+
+.layer-repute.pop-wrap.web {
+    z-index: 999999;
+    padding-bottom: 0
+}
+
+.layer-repute .pop-head__close::before {
+    background: url('//image.alba.kr/m/setting_icon_2022.png') -90px 0 / 120px auto no-repeat
+}
+
+.layer-repute .pop-footer {
+    position: static;
+    box-shadow: none
+}
+
+.rating-star {
+    display: flex;
+    justify-content: center
+}
+
+.rating-star__item {
+    position: relative;
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    font-size: 0;
+    background: url('//image.alba.kr/m/community/rating_star_default.svg') 0 0 / contain no-repeat
+}
+
+.rating-star__item input {
+    margin: 0
+}
+
+.rating-star__item.full {
+    background: url('//image.alba.kr/m/community/rating_star_full.svg') 0 0 / contain no-repeat
+}
+
+.rating-star__item.half {
+    background: url('//image.alba.kr/m/community/rating_star_half.svg') 0 0 / contain no-repeat
+}
+
+.rating-star__score {
+    display: block;
+    margin-top: 12px;
+    font-size: 15px;
+    text-align: center;
+    color: #9096a1
+}
+
+.rating-star__score.on {
+    color: #000
+}
+
+/* 기업평판 - 작성하기 */
+html.ios #ReputeWriteLayer .reputeLayer-wrap {
+    position: absolute
+}
+
+#ReputeWriteLayer .reputeLayer-wrap {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0
+}
+
+.layer-repute-help {
+    display: none;
+    padding: 6px 18px 18px;
+    background: #f6f8fb
+}
+
+.layer-repute-help__button {
+    position: relative;
+    display: block;
+    height: 43px;
+    padding-left: 40px;
+    font-family: 'HGSoftGGothicssi80g';
+    font-size: 15px;
+    line-height: 43px;
+    color: #9096a1;
+    background: #f6f8fb
+}
+
+.layer-repute-help__button::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 13px;
+    width: 16px;
+    height: 16px;
+    background: url('//image.alba.kr/m/repute_icon_20220831.png') -40px -80px / 120px auto no-repeat
+}
+
+.layer-repute-help__button::after {
+    content: '';
+    position: absolute;
+    right: 20px;
+    top: 13px;
+    width: 16px;
+    height: 16px;
+    background: url('//image.alba.kr/m/svg/icn_arrow_down_outline_grayBBB.svg') 0 0 / contain no-repeat
+}
+
+.layer-repute-help__button.active::after {
+    transform: rotate(-180deg)
+}
+
+/*키워드 추가 요청폼( 기능 주석 되어있음 )*/
+/*.reputeLayer-request {display:none}
+.reputeLayer-request {padding:16px 10px;background:#f2f2f2}
+.reputeLayer-request-guide {padding:10px 0}
+.reputeLayer-request-guide>li {padding:0;font-size:12px;color:#888}
+.reputeLayer-request-actionReg {position:relative;height:43px;padding:0 67px 0 0;margin-top:6px}
+.reputeLayer-request-actionReg>input[type="text"] {width:100%;height:43px;line-height:43px;border:0}
+.reputeLayer-request-actionReg>a {position:absolute;right:0;top:0;width:67px;height:43px;line-height:43px;text-align:center;color:#fff}
+.reputeLayer-request-actionReg>a.add ,
+.reputeLayer-request-actionReg>a.del {background:#aaa}
+.reputeLayer-request-action>.request {display:block;height:43px;margin-top:13px;font-size:15px;line-height:43px;font-weight:bold;text-align:center;background:#808080;color:#fff}
+.reputeLayer-action {position:relative;padding:8px 0}
+.reputeLayer-action::after {content:"";display:block;clear:both}
+.reputeLayer-action>a {box-sizing:border-box;float:left;width:32.6%;height:38px;margin-left:1%;font-size:15px;font-weight:bold;line-height:38px;text-align:center;border:1px solid #bbb;background:#fff;color:#333}
+.reputeLayer-action>a:first-child {margin-left:0}
+.reputeLayer-action>a.save {border-color:#ffd100;background:#ffd100} */
+.layer-repute__content {
+    position: relative
+}
+
+.layer-repute__content.joblist {
+    overflow-y: scroll
+}
+
+.layer-repute__section {
+    padding: 25px 0;
+    margin: 0 20px;
+    border-top: solid 1px #eaeef3
+}
+
+.layer-repute__section:first-of-type {
+    border-top: 0 none
+}
+
+.layer-repute__company {
+    font-size: 20px;
+    line-height: 22px;
+    font-weight: bold
+}
+
+.layer-repute__guide {
+    margin: -9px 20px 25px
+}
+
+.layer-repute-select {
+    display: flex;
+    flex-wrap: wrap
+}
+
+.layer-repute-select>li {
+    width: calc(50% - 3px);
+    margin-bottom: 6px
+}
+
+.layer-repute-select>li:nth-child(2n) {
+    margin-left: 6px
+}
+
+.layer-repute-select>li:nth-last-child(-n+2) {
+    margin-bottom: 0
+}
+
+.layer-repute-select select {
+    overflow: hidden;
+    padding: 0 14px 0 12px;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.layer-repute-info {
+    padding: 10px 0 16px
+}
+
+.layer-repute-info__date {
+    font-size: 14px;
+    color: #9096a1
+}
+
+.layer-repute-info__state {
+    display: inline-block;
+    width: 50px;
+    height: 20px;
+    margin-left: 4px;
+    border: solid 1px #2e89e5;
+    border-radius: 11px;
+    box-sizing: border-box;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+    color: #2e89e5
+}
+
+html.ios .layer-repute-info__state {
+    line-height: 20px
+}
+
+.layer-repute__limit {
+    padding-left: 4px;
+    font-family: 'Noto sans','Droid sans','Apple SD Gothic Neo','AppleGothicNeoSD','Microsoft NeoGothic','Malgun Gothic',Sans-serif;
+    font-size: 14px;
+    vertical-align: text-bottom;
+    color: #4d5260
+}
+
+.layer-repute__limit--count {
+    position: absolute;
+    right: 0;
+    bottom: 0
+}
+
+.layer-repute__limit--count em {
+    font-weight: bold;
+    color: #2e89e5
+}
+
+.layer-repute-comment textarea {
+    width: 100%;
+    height: 78px;
+    padding: 12px;
+    border-radius: 8px;
+    line-height: 18px
+}
+
+.layer-repute-rating {
+    padding: 20px 0 50px
+}
+
+.tagcdReviewLayer {
+    -webkit-appearance: auto
+}
+
+/* 기업평판 채용정보 목록 */
+/* #ReputeViewLayer .reputeLayer-wrap {top:0;left:0;right:0;bottom:0;margin:0 !important}
+#ReputeViewLayer .reputeLayer-content {padding:0}
+#ReputeViewLayer .reputeLayer-content li .info span.name {display:block;font-weight:bold;font-size:12px;color:#000}
+#ReputeViewLayer .reputeLayer-content li .info span.title {display:block;padding:5px 0 4px;font-size:15px;color:#000}
+#ReputeViewLayer .filter {display:none} */
+.repute-job-layer {
+    background: #f0f2f5
+}
+
+.repute-job-layer .jobList {
+    padding: 16px 0
+}
+
+/* 기업평판 채용정보 목록 - 이력서 분기 - */
+/* #resumeCareer #ReputeViewLayer .reputeLayer-content {padding:10px 15px 15px} */
+/* 기업평판 - 내가 작성한 평판 */
+.repute-state {
+    position: relative;
+    padding: 0 70px 18px 0;
+    margin-bottom: 20px;
+    border-bottom: 1px dashed #eee
+}
+
+.repute-state__company {
+    font-size: 16px;
+    color: #222
+}
+
+.repute-state__write {
+    padding-top: 6px;
+    font-size: 11px;
+    color: #aaa
+}
+
+.repute-state__like {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 70px;
+    height: 54px;
+    padding-top: 12px;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    background: url('//image.alba.kr/m/repute_countBg.png') no-repeat;
+    background-size: 70px 66px;
+    color: #0c59b8
+}
+
+html.ios .repute-state__like {
+    height: 47px;
+    padding-top: 19px
+}
+
+/* 기업평판 - 작성 가능 리스트 */
+.layer-repute-write .layer-pop__contents {
+    overflow: auto;
+    max-height: 60vh;
+    padding-bottom: 0;
+    margin-bottom: 20px
+}
+
+.layer-repute-write__list li {
+    position: relative;
+    margin: 0 0 10px
+}
+
+.layer-repute-write__list li:last-child {
+    margin: 0
+}
+
+.layer-repute-write__list li input[type="radio"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0
+}
+
+.layer-repute-write__list li input[type="radio"] + label {
+    display: block;
+    box-sizing: border-box;
+    height: 72px;
+    padding: 16px 10px 16px 40px;
+    font-size: 15px;
+    border: 1px solid #e1e7f0;
+    border-radius: 6px;
+    background: url('//image.alba.kr/m/input_radio_v3.png') no-repeat 12px 24px;
+    background-size: 20px 140px
+}
+
+.layer-repute-write__list li input[type="radio"]:checked + label {
+    border-color: #3396fe;
+    background-position: 12px -36px
+}
+
+.layer-repute-write__list li input[type="radio"]:checked + label span.title {
+    font-weight: bold;
+    color: #3396fe
+}
+
+.layer-repute-write__list li span.title {
+    overflow: hidden;
+    display: block;
+    margin-bottom: 5px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #4d5260
+}
+
+.layer-repute-write__list li span.title strong {
+    color: #3396fe
+}
+
+.layer-repute-write__list li span.etc {
+    display: block;
+    height: 20px;
+    font-size: 13px;
+    color: #9096a1
+}
+
+.layer-repute-write__description {
+    margin-top: 12px
+}
+
+/* 기업평판 - 자세히보기 */
+#ReputeDetailview #Contents {
+    padding: 0
+}
+
+.reputeDetailArea>.reputewrap {
+    position: relative;
+    padding: 0 15px 15px;
+    background: #fff
+}
+
+.reputeDetailArea-info-value {
+    padding-top: 4px;
+    font-size: 13px;
+    color: #333
+}
+
+html.ios .reputeDetailArea .repute-page>.repute-pageNum {
+    line-height: 22px
+}
+
+html.ios .reputeDetailArea-recommend>span {
+    line-height: 30px
+}
+
+.repute-detail {
+    background-color: #fff
+}
+
+.repute-detail-head {
+    position: relative;
+    padding: 18px 75px 18px 20px;
+    border-bottom: solid 8px #f0f2f5;
+    background: #fff
+}
+
+.repute-detail-head__title {
+    overflow: hidden;
+    font-size: 20px;
+    font-weight: bold;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.repute-detail-head__title>em {
+    color: #185cc2
+}
+
+.repute-detail-head__title>a>em {
+    position: relative;
+    display: inline-block;
+    width: 61px;
+    height: 23px;
+    line-height: 23px;
+    text-align: center;
+    border: 1px solid #185cc2;
+    color: #185cc2;
+    background: #fff
+}
+
+.repute-detail-head__stats {
+    margin-top: 10px;
+    font-size: 0
+}
+
+.repute-detail-head__stats>span {
+    position: relative;
+    display: inline-block;
+    padding-right: 8px;
+    margin-right: 6px;
+    font-size: 13px;
+    color: #777e8c
+}
+
+.repute-detail-head__stats>span::before {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    vertical-align: -3px;
+    margin-right: 2px;
+    background: url('//image.alba.kr/m/community/community_icon_20230323.png') 0 0 / 60px auto no-repeat
+}
+
+.repute-detail-head__stats>span::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    right: 0;
+    width: 1px;
+    height: 12px;
+    background-color: #eaeef3
+}
+
+.repute-detail-head__stats .view-count::before {
+    background-position: 0 -40px
+}
+
+.repute-detail-head__stats .review-count::before {
+    background-position: -40px -120px
+}
+
+.repute-detail-head__stats>span:last-child::after {
+    display: none
+}
+
+.repute-detail-head__state {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    width: 50px;
+    height: 20px;
+    margin-top: -10px;
+    border-radius: 10px;
+    line-height: 20px;
+    font-size: 11px;
+    font-weight: bold;
+    background-color: #56c3cc;
+    text-align: center;
+    color: #fff
+}
+
+html.ios .repute-detail-head__state {
+    line-height: 22px
+}
+
+.repute-detail__wrap {
+    padding: 24px 20px
+}
+
+.repute-detail__section {
+    padding-top: 32px
+}
+
+.repute-detail__section:first-child {
+    padding-top: 0
+}
+
+.repute-detail__title {
+    margin-bottom: 12px;
+    font-family: 'HGSoftGGothicssi80g';
+    font-size: 18px;
+    letter-spacing: 0;
+    color: #4d5260
+}
+
+.repute-detail__count {
+    padding-left: 6px;
+    font-family: 'Noto sans','Droid sans','Apple SD Gothic Neo','AppleGothicNeoSD','Microsoft NeoGothic','Malgun Gothic',Sans-serif;
+    vertical-align: text-bottom;
+    font-size: 14px;
+    color: #000
+}
+
+.repute-detail-score {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 68px;
+    border-radius: 6px;
+    background-color: #f7fafd
+}
+
+.repute-detail-score__num {
+    margin-right: 18px;
+    font-size: 16px;
+    color: #9096a1
+}
+
+.repute-detail-score__num em {
+    font-size: 13px
+}
+
+.repute-detail-score__num strong {
+    font-size: 32px;
+    color: #000
+}
+
+.repute-detail-score .rating-star__item {
+    width: 24px;
+    height: 24px
+}
+
+.repute-detail-recommend {
+    position: relative;
+    padding: 20px 0 20px 108px;
+    background: url('//image.alba.kr/m/bg_row_dot_gray.png') left bottom /8px repeat-x
+}
+
+.repute-detail-recommend .state {
+    position: absolute;
+    top: 50%;
+    left: 8px;
+    transform: translateY(-50%);
+    font-size: 18px;
+    font-family: 'HGSoftGGothicssi80g'
+}
+
+.repute-detail-recommend .state:before {
+    content: "";
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-right: 4px;
+    vertical-align: -6px;
+    background: url("//image.alba.kr/m/repute_icon_20220831.png") -40px -160px / 120px auto no-repeat
+}
+
+.repute-detail-recommend .state.good {
+    color: #2e89e5
+}
+
+.repute-detail-recommend .state.bad:before {
+    background-position: -40px -120px
+}
+
+.repute-detail-recommend .status__item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 6px
+}
+
+.repute-detail-recommend .status__item:last-child {
+    margin-bottom: 0
+}
+
+.repute-detail-recommend .status__bar {
+    display: inline-block;
+    width: calc(100% - 132px);
+    height: 8px;
+    margin: 1px 0;
+    border-radius: 4px
+}
+
+.repute-detail-recommend .status__bar em {
+    display: block;
+    height: 10px;
+    margin-top: -1px;
+    border-radius: 6px
+}
+
+.repute-detail-recommend .status__bar--good {
+    background-color: #eaf4fe
+}
+
+.repute-detail-recommend .status__bar--good em {
+    background-color: #3396fe
+}
+
+.repute-detail-recommend .status__bar--bad {
+    background-color: #f0f2f5
+}
+
+.repute-detail-recommend .status__bar--bad em {
+    background-color: #9096a1
+}
+
+.repute-detail-recommend .status__title {
+    width: 70px;
+    flex-shrink: 0
+}
+
+.repute-detail-recommend .status__tip {
+    box-sizing: border-box;
+    flex-shrink: 0;
+    width: 58px;
+    height: 22px;
+    padding-left: 6px;
+    margin-left: 11px;
+    font-size: 13px;
+    line-height: 22px;
+    text-align: center;
+    background: url("//image.alba.kr/m/repute_icon_20220831.png") 0 -200px / 120px auto no-repeat
+}
+
+html.ios .repute-detail-recommend .status__tip {
+    line-height: 24px
+}
+
+.repute-detail-personal {
+    position: relative;
+    border-top: solid 8px #f0f2f5
+}
+
+.repute-detail-personal::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 0;
+    width: 100%;
+    border-top: solid 1px #d3dae6
+}
+
+.repute-best-word + .repute-detail__title {
+    margin-top: 24px
+}
+
+.repute-best-word>li {
+    position: relative;
+    height: 44px;
+    margin-bottom: 8px;
+    padding-left: 43px;
+    line-height: 44px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #2e89e5;
+    background-color: #eaf4fe
+}
+
+html.ios .repute-best-word>li {
+    line-height: 46px
+}
+
+.repute-best-word>li:last-child {
+    margin-bottom: 0
+}
+
+.repute-best-word>li::before {
+    content: '';
+    position: absolute;
+    left: 16px;
+    top: 10px;
+    width: 24px;
+    height: 24px;
+    background: url("//image.alba.kr/m/repute_icon_20220831.png") -80px -160px / 120px auto no-repeat
+}
+
+.repute-best-word>li.none {
+    padding: 0;
+    text-align: center
+}
+
+.repute-best-word>li.none:before, .repute-best-word>li.none:after {
+    content: '';
+    position: static;
+    top: auto;
+    left: auto;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin: 0 6px;
+    vertical-align: -6px;
+    background: url("//image.alba.kr/m/repute_icon_20220831.png") -80px -160px / 120px auto no-repeat
+}
+
+.repute-best-word>li.none:after {
+    transform: rotate(-180deg)
+}
+
+.repute-best-word--bad>li {
+    border: solid 1px #eaedf3;
+    color: #9096a1;
+    background-color: #fff
+}
+
+.repute-best-word--bad>li::before, .repute-best-word--bad>li.none::before, .repute-best-word--bad>li.none::after {
+    background-position: -80px -120px
+}
+
+.repute-best-word .count {
+    position: absolute;
+    right: 20px;
+    font-size: 14px;
+    font-weight: normal;
+    color: #000
+}
+
+.repute-best-word .count::before {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+    vertical-align: -3px;
+    background: url("//image.alba.kr/m/repute_icon_20220831.png") 0px -160px / 120px auto no-repeat
+}
+
+.repute-best-word--bad .count::before {
+    background-position: 0px -120px
+}
+
+.pick-comment {
+    position: relative
+}
+
+.pick-comment__item {
+    box-sizing: border-box;
+    padding: 16px 20px;
+    border-radius: 6px;
+    background-color: #f6f8fb
+}
+
+.pick-comment .rating-star {
+    display: inline-flex
+}
+
+.pick-comment .rating-star__item {
+    width: 16px;
+    height: 16px
+}
+
+.pick-comment .rating-score {
+    font-size: 12px;
+    color: #9096a1
+}
+
+.pick-comment .rating-score strong {
+    font-size: 20px;
+    color: #000
+}
+
+.pick-comment__text {
+    overflow: hidden;
+    display: -webkit-box;
+    max-height: 66px;
+    margin-top: 10px;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: bold
+}
+
+.pick-comment__etc {
+    margin-top: 12px;
+    font-size: 13px;
+    color: #9096a1
+}
+
+.pick-comment__etc .point {
+    color: #5986b3
+}
+
+.pick-comment__etc span::before {
+    content: '\00B7';
+    display: inline-block;
+    margin: 0 3px
+}
+
+.pick-comment__etc span:first-child::before {
+    display: none
+}
+
+.pick-comment--personal .pick-comment__item {
+    border: solid 1px #d3dae6;
+    background-color: #fff
+}
+
+.pick-comment .swiper-pagination-bullets {
+    display: none;
+    top: auto;
+    bottom: 0;
+    line-height: 1
+}
+
+.pick-comment .swiper-pagination-bullet {
+    opacity: 1;
+    width: 7px;
+    height: 7px;
+    margin: 0 3.5px;
+    background-color: #ced3db
+}
+
+.pick-comment .swiper-pagination-bullet-active {
+    opacity: 1;
+    background-color: #3396fe
+}
+
+.repute-report-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    margin-left: 4px;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 13px;
+    color: #4d5260
+}
+
+.repute-report-btn>span {
+    display: inline-block;
+    position: relative;
+    top: 1px;
+    margin-right: 2px;
+    width: 13px;
+    height: 13px;
+    background: url("//image.alba.kr/m/repute_icon_20220831.png") -80px -40px / 120px auto no-repeat
+}
+
+.repute-detail-word__title {
+    position: relative;
+    padding: 0 0 12px 24px;
+    margin-top: 18px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #4d5260
+}
+
+.repute-detail-word__title:first-child {
+    margin-top: 22px
+}
+
+.repute-detail-word__title:before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background: url("//image.alba.kr/m/repute_icon_20220831.png") -80px -80px / 120px auto no-repeat
+}
+
+.repute-detail-word__item {
+    display: inline-block;
+    margin: 0 6px 6px 0;
+    padding: 0 10px;
+    height: 36px;
+    box-sizing: border-box;
+    border-radius: 6px;
+    line-height: 34px;
+    font-size: 14px;
+    font-weight: bold
+}
+
+html.ios .repute-detail-word__item {
+    line-height: 38px
+}
+
+.repute-detail-word__item.positive {
+    color: #2e89e5;
+    background-color: #eaf4fe
+}
+
+.repute-detail-word__item.negative {
+    border: 1px solid #d3dae6;
+    color: #777e8c
+}
+
+.repute-detail-word__item.like::after, .repute-detail-word__item.notlike::after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-left: 4px;
+    vertical-align: -2px;
+    background: url('//image.alba.kr/m/repute_icon_20220831.png') 0 -160px / 120px auto no-repeat
+}
+
+.repute-detail-word__item.notlike::after {
+    background-position: 0 -120px
+}
+
+.repute-detail-like {
+    display: block;
+    padding: 0 20px 15px;
+    font-size: 13px;
+    line-height: 30px;
+    color: #9096a1
+}
+
+.repute-detail-like>span {
+    display: inline-block;
+    height: 30px;
+    margin-left: 7px;
+    padding: 0 16px 0 12px;
+    box-sizing: border-box;
+    border-radius: 15px;
+    border: 1px solid #e1e7f0;
+    line-height: 28px
+}
+
+.repute-detail-like>span::before {
+    content: '';
+    display: inline-block;
+    position: relative;
+    top: 3px;
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+    background: url("//image.alba.kr/m/repute_icon_20220831.png") 0 -40px / 120px auto no-repeat
+}
+
+.repute-detail-like.on>span::before {
+    background-position: -40px -40px
+}
+
+.repute-detail-like>em {
+    color: #000
+}
+
+.repute-detail-blur {
+    position: relative;
+    margin-top: 20px
+}
+
+.repute-detail-blur>img {
+    width: 100%
+}
+
+.repute-detail-blur>.repute-detail-blur__button {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%)
+}
+
+.repute-detail-blur>.repute-detail-blur__button>a {
+    display: block;
+    ;width: 209px;
+    height: 44px;
+    font-size: 15px;
+    font-family: HGSoftGGothicssi60g;
+    letter-spacing: 0;
+    line-height: 44px;
+    text-align: center;
+    border-radius: 6px;
+    color: #fff;
+    background: #3396fe
+}
+
+.repute-detail-blur>.repute-detail-blur__button>a::after {
+    content: '';
+    display: inline-block;
+    position: relative;
+    top: 5px;
+    margin-left: 3px;
+    width: 20px;
+    height: 21px;
+    background: url("//image.alba.kr/m/repute_icon_20220831.png") 0 -80px / 120px auto no-repeat
+}
+
+.repute-page {
+    padding: 0 20px;
+    background: #fff
+}
+
+.repute-page__wrap {
+    position: relative;
+    padding: 10px;
+    border-top: 1px solid #eaeef3;
+    text-align: center;
+    background: #fff
+}
+
+.repute-page__num {
+    display: inline-block;
+    height: 36px;
+    vertical-align: top;
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 36px;
+    color: #9096a1
+}
+
+html.ios .repute-page__num {
+    line-height: 38px
+}
+
+.repute-page__num {
+    display: inline-block;
+    height: 36px;
+    vertical-align: top;
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 36px;
+    color: #9096a1
+}
+
+.repute-page__num span {
+    display: inline-block;
+    width: 36px;
+    color: #9096a1
+}
+
+.repute-page__num span:first-child {
+    font-weight: bold;
+    color: #000
+}
+
+.repute-page a {
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    font-size: 0;
+    line-height: 36px;
+    vertical-align: top;
+    color: #9096a1
+}
+
+.repute-page a::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 10px;
+    height: 14px;
+    margin: -7px 0 0 -5px;
+    line-height: 0;
+    font-size: 0;
+    font-family: Dotum;
+    color: transparent;
+    vertical-align: top;
+    background: url('//image.alba.kr/m/pagination_arrow1.png') no-repeat -15px 0;
+    background-size: 30px 15px
+}
+
+.repute-page a.disabled::before {
+    background-position: 0 0
+}
+
+.repute-page a.page-arrowNext {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg)
+}
+
+.repute-description {
+    padding: 0 20px 20px;
+    background-color: #fff
+}
+
+#JobDetail .repute-detail__wrap {
+    padding: 0
+}
+
+#JobDetail .repute-detail__title {
+    font-size: 16px
+}
+
+#JobDetail .pick-comment {
+    padding-bottom: 23px
+}
+
+#JobDetail .pick-comment__text {
+    height: 66px
+}
+
+/* #JobDetail .pick-comment .swiper-pagination-bullets {display:block} */
+.repute-view-layer__company {
+    margin-bottom: 12px;
+    font-size: 16px;
+    font-weight: bold
+}
+
+.repute-view-layer__company>span {
+    display: inline-block;
+    margin-right: 8px;
+    font-size: 15px;
+    font-weight: normal;
+    color: #9096a1
+}
+
+/* 기업평판 - 포인트레이어 -- 플로우 없음 */
+/* #ReputePointLayer .reputeLayer-wrap {top:50%;left:10px;right:10px;border-radius:5px}
+.reputeLayer-point {padding:0}
+.reputeLayer-point .reputeLayer-point__wrap {padding:20px 20px 25px}
+.reputeLayer-point .reputeLayer-point__wrap>.intro {position:relative;margin-bottom:20px;padding-left:7px;font-size:12px;color:#aaa}
+.reputeLayer-point .reputeLayer-point__wrap>.intro>span {position:absolute;top:50%;left:0;margin-top:-2px;display:inline-block;width:2px;height:2px;background:#aaa;border-radius:50%}
+.reputeLayer-point .reputeLayer-point__wrap>.intro>strong {font-weight:normal;color:#222}
+.reputeLayer-point .reputeLayer-point__wrap>.point {display:-webkit-flex;display:flex;height:66px;justify-content:center;align-items:center;background:#fdfbea}
+.reputeLayer-point .reputeLayer-point__wrap>.point::after {content:"";display:block;clear:both}
+.reputeLayer-point .reputeLayer-point__wrap>.point>.point-title {margin-top:3px;margin-right:20px;font-size:14px;line-height:66px;color:#222}
+.reputeLayer-point .reputeLayer-point__wrap>.point>.point-title>span {display:inline-block;margin-right:8px;width:31px;height:66px;vertical-align:bottom;background:url('//image.alba.kr/m/repute_list_bg.png') no-repeat -144px 17px;background-size:216px 36px}
+.reputeLayer-point .reputeLayer-point__wrap>.point>.point-val {padding-top:3px;font-size:24px;font-weight:bold;line-height:66px;color:#222}
+.reputeLayer-point .reputeLayer-point__wrap>.description {margin-top:20px;font-size:14px;line-height:1.5;color:#666}
+.reputeLayer-point .reputeLayer-point__wrap>.description>strong {font-weight:normal;color:#222}
+.reputeLayer-point .reputeLayer-point__wrap>.description>strong>span {color:#ff4b64}
+.reputeLayer-point>.reputeLayer-pointBtn {padding:19px 33px 15px 33px;border-top:1px solid #ddd;font-size:0;text-align:right}
+.reputeLayer-point>.reputeLayer-pointBtn::after {content:"";display:block;clear:both}
+.reputeLayer-point>.reputeLayer-pointBtn>a {display:inline-block;margin-left:45px;font-size:13px;color:#2346e4}
+.reputeLayer-point>.reputeLayer-pointBtn>a:first-child {margin-left:0}
+.reputeLayer-point>.reputeLayer-pointBtn>a.cancel {color:#888} */
+/* 기업평판 - 신고레이어 */
+/* .layer-repute {box-sizing:border-box;z-index:99999;overflow-y:scroll;position:fixed;left:0;top:0;right:0;bottom:0;width:100%;height:100%;padding-top:44px;background:#fff} */
+.report-write__list {
+    margin: 20px
+}
+
+.report-write__item {
+    position: relative;
+    margin-top: 12px;
+    padding-left: 83px;
+    line-height: 28px
+}
+
+.report-write__item:first-child {
+    margin-top: 0
+}
+
+.report-write__item input[type='text'], .report-write__item input[type='email'], .report-write__item input[type='tel'] {
+    width: 100%;
+    height: 44px;
+    padding: 0 12px;
+    border: solid 1px #d3dae6;
+    border-radius: 6px;
+    font-size: 15px;
+    line-height: 44px
+}
+
+.report-write__item input::-webkit-input-placeholder {
+    font-size: 12px;
+    color: #aaa;
+    -webkit-text-fill-color: #aaa;
+    -webkit-opacity: 1;
+    background: transparent
+}
+
+.report-write__label {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 15px;
+    line-height: 1;
+    color: #9096a1
+}
+
+.report-write__label--row {
+    top: 50%;
+    transform: translateY(-50%)
+}
+
+.report-write__label em {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    margin-left: -3px;
+    vertical-align: top;
+    font-size: 0;
+    background: url('//image.alba.kr/m/biz/biz_essential_icon.png') 0 0 / contain no-repeat
+}
+
+.report-write-name {
+    font-size: 15px
+}
+
+.report-write-num {
+    display: flex
+}
+
+.report-write-num .first {
+    width: 78px
+}
+
+.report-write-num .bar {
+    flex-shrink: 0;
+    align-self: center;
+    width: 10px;
+    text-align: center
+}
+
+.report-write__limit {
+    position: absolute;
+    right: 0;
+    top: 0;
+    line-height: 1;
+    color: #4d5260
+}
+
+.report-write__limit em {
+    font-weight: bold;
+    color: #2e89e5
+}
+
+.report-write-content {
+    padding-left: 0;
+    padding-top: 27px;
+    margin-top: 12px
+}
+
+.report-write-content textarea {
+    width: 100%;
+    height: 132px;
+    padding: 12px;
+    border: solid 1px #d3dae6;
+    border-radius: 6px;
+    font-size: 15px
+}
+
+.report-write-action {
+    padding: 0 12px 16px
+}
+
+.report-write-action>a {
+    display: block;
+    height: 54px;
+    margin: 0 auto;
+    border: solid 1px #ffe000;
+    border-radius: 12px;
+    font-family: 'HGSoftGGothicssi60g';
+    font-size: 16px;
+    line-height: 54px;
+    text-align: center;
+    background: #fff230
+}
+
+.report-write-guide {
+    padding-top: 12px;
+    margin: 20px;
+    border-top: solid 1px #eaeef3
+}
+
+/* 개인정보동의 */
+.report-write-agree {
+    margin: 0 20px
+}
+
+.report-write-agree__wrap {
+    padding: 16px;
+    border-radius: 6px;
+    background: #f6f8fb
+}
+
+.report-write-agree__title {
+    padding-bottom: 7px;
+    font-weight: normal;
+    font-size: 13px;
+    color: #4d5260
+}
+
+.report-write-agree__contents p {
+    margin-top: 5px;
+    font-size: 12px;
+    color: #90969a
+}
+
+.report-write-agree__contents p span:first-child {
+    width: 60px;
+    white-space: nowrap
+}
+
+.report-write-agree__check {
+    margin-top: 13px
+}
+
+/* 기업평판 - 공고상세 */
+#InfoDetail #ReputeDetailList {
+    padding: 0
+}
+
+/* 기업평판 리스트 카운트 */
+.repute-count {
+    height: 29px;
+    line-height: 29px;
+    font-size: 0
+}
+
+.repute-count>span {
+    font-family: 'HGSoftGGothicssi80g';
+    letter-spacing: 0;
+    font-size: 15px
+}
+
+.repute-count em {
+    color: #2e89e5
+}
+
+.repute-count--company::after {
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 14px;
+    margin: 0 8px;
+    vertical-align: -2px;
+    background-color: #e1e7f0
+}
+
+/* 알바리뷰 on/off button */
+.repute-toggle__button {
+    position: absolute;
+    top: 17px;
+    right: 20px;
+    width: 88px;
+    height: 32px;
+    padding: 9px 0;
+    border-radius: 6px;
+    border: solid 1px #ced4de;
+    font-family: 'HGSoftGGothicssi60g';
+    font-size: 13px;
+    color: #000;
+    background: #fff
+}
+
+.repute-toggle__button em {
+    font-family: 'HGSoftGGothicssi80g'
+}
+
+.repute-toggle__notice {
+    position: relative;
+    padding-left: 6px;
+    margin-bottom: 17px;
+    font-size: 12px;
+    line-height: 1.4;
+    color: #f04452;
+    word-break: keep-all
+}
+
+.repute-toggle__notice::before {
+    content: '';
+    position: absolute;
+    top: 7.2px;
+    left: 0;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    background: #f04452
+}
+
+.repute-toggle-layer__list {
+    margin: -20px -20px 13px
+}
+
+.repute-toggle-layer__item {
+    height: 50px;
+    padding-left: 20px;
+    border-bottom: solid 1px #eaeef3;
+    line-height: 50px
+}
+
+.repute-toggle .layer-pop__button {
+    border: 0 none;
+    color: #fff !important;
+    background-color: #3396fe
+}
+
+/* APP 이력서 경력 > 알바리뷰 팝업 */
+html.app #ReputationLayer .pop-wrap.web {
+    top: 0;
+    border-radius: 0;
+    animation: none
+}

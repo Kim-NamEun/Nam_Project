@@ -1,0 +1,66 @@
+calculateProject
+    - calculator
+        - static
+            - CSS
+                . nam_style.css
+                . repute.css
+                . set.css
+                . story.css
+                . sub.css
+            - js
+                . common_ctrl.js
+                . common_ui.js
+                . jquery-1.8.3.min.js
+                . key_up_fix.js
+                . payment_cal_script.js
+                . swiper.min.js
+        - templates
+            . calculator.html
+            . payment_cal.html
+        - views
+            . main_views.py
+        . __init__.py
+        . forms.py
+        . models.py : 모델 클래스 정의
+    - migrations : db 정보 dir
+        - versions
+        . alembic.ini
+        . env.py
+        . README
+        . script.py.mako
+    . config.py : db 설정 정보 정의
+
+set FLASK_APP=pybo
+set FLASK_APP=main_views
+
+# db관련 명령어
+flask shell : db 실행
+>>> from pybo import db
+>>> from pybo.models import Question
+>>> from datetime import datetime
+>>> for i in range(300):
+...     q = Question(subject='테스트 데이터입니다:[%03d]' % i, content='내용무', create_date=datetime.now())
+...     db.session.add(q)
+...
+>>>  db.session.commit()
+flask db init : 데이터베이스 초기화, 최초 한 번만 수행
+flask db migrate : 모델 생성, 변경 (실행하면 작업파일이 생성된다.)
+flask db upgrade : 모델 변경 내용 db 적용 (위에서 생성된 작업파일을 실행하여 데이터베이스를 변경한다.)
+
+
+ondelete='CASCADE' : 삭제 연동 설정
+backref=db.backref('answer_set') : 역참조
+, cascade='all, delete-orphan') : a_question.delete() 처럼 파이썬 코드로 질문 데이터를 삭제 할 경우 질문과 답변 동시 삭제
+SQLAlchemy 제공 속성 : https://docs.sqlalchemy.org/en/13/core/type_basics.html
+SQLAlchemy 공식 문서 : https://docs.sqlalchemy.org/en/13/orm/query.html
+템플릿 사용 문법 : https://jinja.palletsprojects.com/en/2.11.x/templates
+폼 속성 : https://wtforms.readthedocs.io/en/2.3.x/fields/#basic-fields
+validators(검증을 위해 사용되는 도구) : https://wtforms.readthedocs.io/en/2.3.x/validators/#built-in-validators
+부트스트랩 내비게이션바 공식 문서: https://getbootstrap.com/docs/5.1/components/navbar
+마크다운 문법 공식 문서: www.markdownguide.org/getting-started
+마크다운 확장 기능 문서: python-markdown.github.io/extensions
+
+SECRET_KEY : CSRF(cross-site request forgery)라는 웹 사이트 취약점 공격 방지
+--> 유추하기 쉬운 문자열을 입력하면 안됨
+
+

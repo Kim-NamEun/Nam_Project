@@ -1,0 +1,1806 @@
+@charset "utf-8"; body.settings {
+    overflow: hidden
+}
+
+body.settings #Section {
+    overscroll-behavior: contain;
+    padding-top: 0 !important
+}
+
+body.settings:not(.settings--all) .pop-wrap.web, #jobkindSelect.pop-wrap, #locationSelect.pop-wrap {
+    padding-bottom: 118px
+}
+
+/* 상세설정 ALL */
+.settings--all .setting-container {
+    overflow-y: auto
+}
+
+.settings--all .setting-board {
+    min-height: 75px
+}
+
+/* 상세설정 */
+.setting-head {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 57px;
+    text-align: center;
+    box-sizing: border-box;
+    border-radius: 24px 24px 0 0;
+    border-bottom: 1px solid #eaeef3;
+    background-color: #fff
+}
+
+.setting-head__back {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 16px;
+    font-size: 0;
+    color: transparent;
+    background: transparent
+}
+
+.setting-head__back::before {
+    content: "";
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: url('//image.alba.kr/m/svg/x_circle_bggrayE.svg') 0 0 /100% 100% no-repeat
+}
+
+.setting-head__title {
+    overflow: hidden;
+    padding: 0;
+    font-weight: normal;
+    font-size: 17px;
+    font-family: HGSoftGGothicssi60g;
+    letter-spacing: 0;
+    line-height: 57px;
+    color: #000
+}
+
+.setting-container {
+    box-sizing: border-box;
+    height: 100%;
+    background-color: #fff
+}
+
+.setting-loding-resume {
+    padding: 20px 20px 0
+}
+
+.setting-loding-resume__button {
+    width: 100%;
+    height: 50px;
+    padding: 0;
+    line-height: 48px;
+    border-radius: 8px;
+    border: solid 1px #4d5260;
+    font-size: 16px;
+    font-family: HGSoftGGothicssi60g;
+    letter-spacing: 0;
+    background-color: transparent;
+    color: #000
+}
+
+.setting-loding-resume__button::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-right: 6px;
+    vertical-align: -7px;
+    background: url('//image.alba.kr/m/setting_icon_2022.png')no-repeat -60px -60px;
+    background-size: 120px 120px
+}
+
+.input--floting {
+    float: right;
+    margin-top: 10px;
+    position: relative;
+    height: 22px
+}
+
+.set-count {
+    float: right;
+    font: 14px 'Noto sans','Droid sans','Apple SD Gothic Neo','AppleGothicNeoSD','Microsoft NeoGothic','Malgun Gothic',Sans-serif;
+    color: #4d5260
+}
+
+html.ios .set-count {
+    margin-top: 3px
+}
+
+.set-count>span {
+    font-weight: bold;
+    color: #2e89e5
+}
+
+.set-essential {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    font-size: 0;
+    color: #ff2a2a;
+    vertical-align: top;
+    background: url('//image.alba.kr/m/customjob/icn_require_orangey-red.svg') center / contain no-repeat;
+}
+
+.setting-info {
+    position: relative;
+    height: 44px;
+    line-height: 44px;
+    font-size: 14px;
+    font-family: HGSoftGGothicssi60g;
+    letter-spacing: 0;
+    text-align: center;
+    color: #000;
+    background: #ffffb9
+}
+
+html.ios .setting-info {
+    line-height: 46px
+}
+
+.setting-info:before {
+    content: '';
+    position: relative;
+    display: inline-block;
+    top: 3px;
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    background: url('//image.alba.kr/m/setting_icon_2022.png') no-repeat -90px -60px;
+    background-size: 120px 120px
+}
+
+.set-detail {
+    position: relative;
+    padding: 25px 0 19px;
+    margin: 0 20px;
+    border-top: 1px solid #eaeef3;
+    background: #fff
+}
+
+.set-detail:nth-of-type(1) {
+    border-top: 0
+}
+
+.set-detail__title {
+    display: block
+}
+
+.set-detail__text {
+    position: relative;
+    padding-bottom: 12px;
+    font-size: 18px;
+    font-family: 'HGSoftGGothicssi80g';
+    letter-spacing: 0;
+    color: #000
+}
+
+.set-detail__link {
+    display: block;
+    position: relative;
+    height: 44px;
+    line-height: 44px;
+    padding: 0 12px;
+    border-radius: 6px;
+    border: 1px solid #d3dae6;
+    font-size: 15px;
+    font-family: HGSoftGGothicssi60g;
+    letter-spacing: 0;
+    color: #777e8c
+}
+
+.set-detail__link:after {
+    content: '';
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    width: 16px;
+    height: 16px;
+    margin-top: -8px;
+    background: url('//image.alba.kr/m/setting_icon_2022.png') no-repeat -60px -30px;
+    background-size: 120px 120px
+}
+
+html.ios .set-detail__link {
+    line-height: 46px
+}
+
+.set-detail__essential {
+    position: absolute;
+    right: 17px;
+    top: 50%;
+    height: 16px;
+    margin-top: -8px;
+    font-size: 13px;
+    color: #ff2a2a
+}
+
+.set-detail__field--none-item {
+    padding: 0
+}
+
+.set-detail__items {
+    margin-top: 6px
+}
+
+.set-detail__items li {
+    display: inline-block;
+    position: relative;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 34px 0 12px;
+    margin: 6px 6px 0 0;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 6px;
+    color: #2e89e5;
+    background-color: #eaf4fe
+}
+
+html.ios .set-detail__items li {
+    line-height: 38px
+}
+
+.set-detail__items .viewDelBtn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    box-sizing: border-box;
+    width: 34px;
+    height: 36px;
+    padding: 8px 10px 8px 4px;
+    font-size: 0;
+    line-height: 0;
+    color: transparent
+}
+
+.set-detail__items .viewDelBtn:after {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: url('//image.alba.kr/m/input_tag.png') no-repeat 0 -120px;
+    background-size: 20px 140px
+}
+
+.set-option {
+    position: relative;
+    padding: 25px 0;
+    margin: 0 20px;
+    border-top: 1px solid #eaeef3
+}
+
+.set-option input:focus {
+    border-color: #3396fe
+}
+
+.set-option__title {
+    display: block;
+    box-sizing: border-box;
+    padding-bottom: 12px;
+    font-size: 18px;
+    font-family: 'HGSoftGGothicssi80g';
+    letter-spacing: 0;
+    color: #000
+}
+
+.set-option__title .input--floating {
+    float: right
+}
+
+.set-option__title .input--floating.input input + label {
+    font-family: HGSoftGGothicssi60g;
+    line-height: 22px;
+    color: #777e8c;
+    background: url('//image.alba.kr/m/input_checkbox_v3.png') no-repeat 0 0;
+    background-size: 20px 140px
+}
+
+.set-option__field {
+    background: #fff
+}
+
+.set-option__field:after {
+    content: '';
+    clear: both;
+    display: block
+}
+
+html.ios .set-option__field>.input label {
+    line-height: 22px
+}
+
+.set-option__list {
+    display: flex;
+    display: -webkit-flex;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    margin: -6px -3px 0
+}
+
+.set-option__item {
+    flex-basis: calc(50% - 6px);
+    -webkit-flex-basis: calc(50% - 6px);
+    margin: 6px 3px 0
+}
+
+.set-option__field--col03 .set-option__item {
+    flex-basis: calc(33.33% - 6px);
+    -webkit-flex-basis: calc(33.33% - 6px)
+}
+
+.set-option__item .input {
+    display: block
+}
+
+.set-option__item .input input+label {
+    overflow: hidden;
+    display: block;
+    box-sizing: border-box;
+    height: 44px;
+    line-height: 42px;
+    padding: 0;
+    border: 1px solid #e1e7f0;
+    border-radius: 6px;
+    font-size: 15px;
+    line-height: 44px;
+    text-align: center;
+    word-break: break-all;
+    white-space: nowrap;
+    color: #4d5260;
+    background: none !important
+}
+
+html.ios .set-option__item .input input+label {
+    line-height: 44px
+}
+
+.set-option__item .input input:checked+label {
+    font-weight: bold;
+    border-color: #3396fe;
+    color: #2e89e5
+}
+
+.set-option__select {
+    display: flex;
+    display: -webkit-flex;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    margin: 0 -3px
+}
+
+.set-option__select-item {
+    flex-basis: calc(50% - 6px);
+    -webkit-flex-basis: calc(50% - 6px);
+    margin: 0 3px
+}
+
+.set-option__select-item select {
+    width: 100%;
+    height: 44px;
+    padding: 0 12px;
+    font-size: 15px;
+    box-sizing: border-box;
+    border: 1px solid #d3dae6;
+    border-radius: 6px;
+    line-height: 44px;
+    letter-spacing: -0.05em;
+    background-color: #fff
+}
+
+.set-option__select-item select:invalid {
+    font-size: 15px;
+    color: #9096a1
+}
+
+.set-option__select-item--bar {
+    width: 30px;
+    line-height: 44px;
+    text-align: center;
+    color: #000
+}
+
+.set-option__space-text {
+    width: 30px;
+    line-height: 44px;
+    text-align: center;
+    color: #000
+}
+
+.set-option__change {
+    margin-bottom: 15px
+}
+
+.set-option__change .input {
+    margin-right: 20px
+}
+
+.set-option__info {
+    display: none;
+    clear: both;
+    padding: 5px 0 0;
+    height: 18px;
+    font-size: 12px;
+    line-height: 18px;
+    color: #bbb
+}
+
+.set-option__info.on {
+    display: block
+}
+
+.set-option__field--safe {
+    padding: 0;
+    border: 0 none;
+    font-size: 0
+}
+
+.set-option__field--safe .input {
+    width: 50%
+}
+
+.set-option__field .input-num input[type="tel"] {
+    padding-left: 11px;
+    width: 160px;
+    height: 38px;
+    border-radius: 0;
+    box-sizing: border-box;
+    border: 1px solid #d5d5d5;
+    -webkit-appearance: none;
+    font-size: 14px;
+    line-height: 36px;
+    color: #222
+}
+
+.set-option__field .input-num input[type="number"] {
+    padding-left: 11px;
+    width: 100%;
+    height: 38px;
+    border-radius: 6px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    -webkit-appearance: none;
+    font-size: 14px;
+    color: #222
+}
+
+.set-option__field .input-num input::-webkit-outer-spin-button,input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0
+}
+
+.set-option__field .input-text {
+    padding-left: 11px;
+    margin-right: 6px;
+    width: 160px;
+    height: 38px;
+    border-radius: 0;
+    box-sizing: border-box;
+    border: 1px solid #d5d5d5;
+    -webkit-appearance: none;
+    font-size: 14px;
+    line-height: 36px;
+    color: #222
+}
+
+.set-option__field--age .set-option__select-item {
+    flex-basis: calc(50% - 30px);
+    -webkit-flex-basis: calc(50% - 30px);
+    margin: 0
+}
+
+/* .set-option__field--age .set-option__select-item--bar {width:30px;line-height:44px;text-align:center;color:#000} */
+/* .set-option__field--age .set-option__space-text {width:30px;line-height:44px;text-align:center;color:#000} */
+.set-option__field--etcfilter {
+    padding: 0;
+    border: 0 none;
+    font-size: 0
+}
+
+.set-option__field--etcfilter .input {
+    width: 50%
+}
+
+.set-option__field--etcfilter .input:nth-child(n+3) {
+    margin-top: 16px
+}
+
+.set-option__select--time {
+    float: none;
+    width: auto
+}
+
+.set-option__select--time .set-option__select-item {
+    flex-basis: calc(50% - 15px);
+    -webkit-flex-basis: calc(50% - 15px);
+    margin: 0
+}
+
+.set-option__select--time .set-option__select-item--bar {
+    width: 30px
+}
+
+.set-option__select--time.on .set-option__divide-item--toggle {
+    display: block
+}
+
+.set-option__field--keyword .keyword-input__type {
+    position: relative;
+    display: block;
+    margin-bottom: 8px;
+    padding-left: 50px
+}
+
+.set-option__field--keyword .keyword-input__type-label {
+    position: absolute;
+    left: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 44px;
+    color: #000
+}
+
+.set-option__field--keyword .keyword-input__type-input {
+    width: 100%;
+    height: 44px;
+    padding: 0 12px;
+    font-size: 15px;
+    box-sizing: border-box;
+    border: 1px solid #d3dae6;
+    border-radius: 6px;
+    line-height: 44px;
+    letter-spacing: -0.05em;
+    background-color: #fff
+}
+
+.set-option__field--keyword .keyword-input__type .clearBtn {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 44px;
+    height: 44px;
+    box-sizing: border-box;
+    padding: 12px;
+    font-size: 0;
+    color: transparent;
+    background-color: transparent
+}
+
+.set-option__field--keyword .keyword-input__type .clearBtn span::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: url('//image.alba.kr/m/setting_icon_2022.png') no-repeat;
+    background-position: -30px 0;
+    background-size: 120px 120px
+}
+
+.set-option__field--keyword .keyword-input__type .clearBtn.on {
+    display: block
+}
+
+.set-option__name {
+    position: relative
+}
+
+.set-option__reset {
+    position: absolute;
+    top: 10px;
+    right: 12px
+}
+
+.set-option__reset-action {
+    font-size: 12px;
+    color: #444
+}
+
+.set-option__reset-action::before {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin: 2px 4px 0 0;
+    vertical-align: -4px;
+    background: url('//image.alba.kr/m/setting_icon_2022.png') -90px -90px no-repeat;
+    background-size: 120px auto
+}
+
+.set-option__input--nameing {
+    width: 100%;
+    height: 44px;
+    padding: 0 12px;
+    font-size: 15px;
+    box-sizing: border-box;
+    border: 1px solid #d3dae6;
+    border-radius: 6px;
+    line-height: 44px;
+    letter-spacing: -0.05em;
+    background-color: #fff
+}
+
+.set-option__input--nameing:focus {
+    border-color: #2346e4 !important;
+    outline: none
+}
+
+.set-option__delete {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 12px;
+    font-size: 0;
+    color: transparent
+}
+
+.set-option__delete::before {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: url('//image.alba.kr/m/setting_icon_2022.png') no-repeat;
+    background-position: -30px 0;
+    background-size: 120px 120px;
+}
+
+.set-option__delete.on {
+    display: block
+}
+
+.set-option__guide-item {
+    position: relative;
+    margin: 0 20px 20px;
+    padding: 16px 16px 16px 76px;
+    border-radius: 8px;
+    font-size: 13px;
+    line-height: 1.4;
+    color: #4d5260;
+    background-color: #f6f8fb;
+    word-break: keep-all
+}
+
+.set-option__guide-item::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    width: 48px;
+    height: 48px;
+    margin-top: -24px;
+    background: url('//image.alba.kr/m/setting_filter_icon.png') no-repeat 0;
+    background-size: 48px 48px
+}
+
+.set-option__filter {
+    display: block;
+    margin-bottom: 12px
+}
+
+html.ios .set-option__filter>.input label {
+    line-height: 22px
+}
+
+/*성별 연령 추가*/
+.set-option__filter__except {
+    position: absolute;
+    right: 0;
+    font-family: 'Noto sans','Droid sans','Apple SD Gothic Neo','AppleGothicNeoSD','Microsoft NeoGothic','Malgun Gothic','Sans-serif';
+    margin-bottom: 12px
+}
+
+.set-option__info.age,.set-option__info.gender {
+    padding-top: 8px;
+    color: #5986b3
+}
+
+.set-option__field--age.input-age {
+    font-size: 0
+}
+
+.set-option__field--age .input-num {
+    display: inline-block;
+    width: calc(100% - 24px);
+    margin-right: 10px;
+    vertical-align: middle
+}
+
+.set-option__field--age .age-text {
+    display: inline-block;
+    width: 14px;
+    vertical-align: middle;
+    font-size: 15px
+}
+
+/* 상세설정 - 항목 */
+.check-bg li input + label:after {
+    display: block;
+    content: "";
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 13px;
+    right: 12px;
+    background: url('//image.alba.kr/m/setting_icon_2022.png') no-repeat 0 -30px;
+    background-size: 120px 120px
+}
+
+.check-bg li input:checked + label:after, .check-bg li input.checked + label {
+    background-position: -30px -30px
+}
+
+.setting-search {
+    padding: 20px 0;
+    margin: 0 20px
+}
+
+#ResumeRegist #jobkindSelect .setting-search, #JobRegist .setting-search {
+    border-bottom: 1px solid #eaeef3
+}
+
+.setting-search__title {
+    height: 22px;
+    font-size: 18px;
+    font-family: HGSoftGGothicssi80g;
+    letter-spacing: 0;
+    color: #000
+}
+
+.setting-search__title>strong {
+    font-weight: normal;
+    color: #2e89e5
+}
+
+.setting-search .setting-search__input-wrap {
+    position: relative;
+    margin-top: 8px
+}
+
+.setting-search .setting-search__input-wrap::after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    width: 24px;
+    height: 24px;
+    margin-top: -12px;
+    background: url('//image.alba.kr/m/setting_icon_2022.png') no-repeat 0 0;
+    background-size: 120px 120px
+}
+
+.setting-search .setting-search__input {
+    width: 100%;
+    height: 44px;
+    padding: 0 44px 0 12px;
+    box-sizing: border-box;
+    border-radius: 6px;
+    border: 1px solid #d3dae6;
+    -webkit-appearance: none;
+    font-size: 15px;
+    line-height: 44px;
+    color: #000
+}
+
+.setting-search .setting-search__input::-webkit-input-placeholder {
+    font-family: HGSoftGGothicssi60g;
+    letter-spacing: 0;
+    color: #9096a1
+}
+
+.setting-items {
+    overflow: hidden;
+    height: 100%
+}
+
+.setting-items__title-area {
+    z-index: 2;
+    overflow: hidden;
+    position: relative;
+    border-top: 1px solid #4d5260;
+    border-bottom: 1px solid #e1e7f0;
+    background: #fff
+}
+
+.setting-items__title {
+    float: left;
+    width: 66.6%;
+    height: 40px;
+    position: relative;
+    line-height: 40px;
+    font-size: 14px;
+    text-align: center;
+    color: #4d5260
+}
+
+html.ios .setting-items__title {
+    line-height: 42px
+}
+
+.setting-items__title::before {
+    display: block;
+    content: "";
+    margin-top: -6px;
+    width: 1px;
+    height: 12px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    background: #d3dae6
+}
+
+.setting-items__title:last-child::before {
+    display: none
+}
+
+.setting-items__list::after {
+    content: "";
+    display: block;
+    clear: both
+}
+
+.setting-items__list li {
+    overflow: hidden;
+    box-sizing: border-box;
+    float: left;
+    position: relative;
+    width: 100%;
+    height: auto;
+    background: none
+}
+
+.setting-items__list input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    visibility: hidden;
+    opacity: 0
+}
+
+.setting-items__list label {
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+    display: block;
+    height: 44px;
+    padding: 0 16px;
+    line-height: 44px;
+    text-align: left;
+    word-break: break-all;
+    word-wrap: break-word;
+    font-size: 14px;
+    color: #000;
+    background-color: #fff;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+html.ios .setting-items__list label {
+    line-height: 46px
+}
+
+.setting-items__col:last-child .setting-items__list label {
+    padding-right: 26px
+}
+
+.setting-items__list input:checked + label, .setting-items__list input.checked + label {
+    font-weight: bold;
+    color: #2e89e5;
+    background-color: #eff6fe
+}
+
+.setting-items__list input:disabled + label {
+    color: #a2aebf
+}
+
+/* CASE 1. 지역레이어-타이틀 (인재) */
+.setting-items__col-area {
+    height: calc(100% - 104px);
+    height: -webkit-calc(100% - 104px)
+}
+
+.setting-items__col-area.expand {
+    height: calc(100% - 146px);
+    height: -webkit-calc(100% - 146px)
+}
+
+/* CASE 2. 지역레이어-타이틀+검색바 (이력서) */
+.setting-items__col-area.type2scroll {
+    height: calc(100% - 156px);
+    height: -webkit-calc(100% - 156px)
+}
+
+.setting-items__col-area.type2scroll.expand {
+    height: calc(100% - 200px);
+    height: -webkit-calc(100% - 200px)
+}
+
+/* CASE 3. 지역레이어-타이틀+검색바+옵션 (지역별채용관) */
+.setting-items__col-area.type3scroll {
+    height: calc(100% - 188px);
+    height: -webkit-calc(100% - 188px)
+}
+
+.setting-items__col-area.type3scroll.expand {
+    height: calc(100% - 232px);
+    height: -webkit-calc(100% - 232px)
+}
+
+.setting-items__col {
+    overflow-y: scroll;
+    position: relative;
+    float: left;
+    width: 33.3%;
+    height: 100%;
+    box-sizing: border-box;
+    border-right: 1px solid #e1e7f0;
+    background: #fff;
+    /*-webkit-overflow-scrolling:touch*/
+}
+
+.setting-items__col::-webkit-scrollbar {
+    display: none
+}
+
+.setting-items__col:first-of-type {
+    border-right: none;
+    background-color: #f7f8fb
+}
+
+.setting-items__col:last-of-type {
+    border-right: none
+}
+
+/* 시/도 영역 */
+.setting-items__col-area .setting-items__col:nth-of-type(1)::after {
+    z-index: 1;
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 1px;
+    background-color: #e1e7f0
+}
+
+.setting-items__col-area .setting-items__col:nth-of-type(1) .setting-items__list label {
+    padding: 0;
+    text-align: center;
+    color: #9096a1;
+    background-color: #f7f8fb
+}
+
+.setting-items__col-area .setting-items__col:nth-of-type(1) .setting-items__list label::after {
+    content: '';
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 1px;
+    background-color: #e1e7f0
+}
+
+.setting-items__col-area .setting-items__col:nth-of-type(1) .setting-items__list input:checked + label, .setting-items__col-area .setting-items__col:nth-of-type(1) .setting-items__list input.checked + label {
+    border-top: 1px solid #e1e7f0;
+    border-bottom: 1px solid #e1e7f0;
+    color: #000;
+    background: #fff
+}
+
+.setting-items__col-area .setting-items__col:nth-of-type(1) .setting-items__list input:checked + label::after {
+    z-index: 2;
+    background-color: #fff
+}
+
+.setting-items__col-area .setting-items__col:nth-of-type(1) .setting-items__list li:first-child input:checked + label {
+    border-top: 0
+}
+
+.setting-items__title-area--second .setting-items__title:nth-of-type(1), .setting-items__col-area--second .setting-items__col:nth-of-type(1) {
+    width: 35%
+}
+
+.setting-items__title-area--second .setting-items__title:nth-of-type(2), .setting-items__col-area--second .setting-items__col:nth-of-type(2) {
+    width: 65%
+}
+
+.setting-items__title-area--third .setting-items__title:nth-child(1) , .setting-items__col-area--third .setting-items__col:nth-child(1) {
+    width: 90px
+}
+
+.setting-items__title-area--third .setting-items__title, .setting-items__col-area--third .setting-items__col {
+    width: calc(50% - 45px);
+    width: -webkit-calc(50% - 45px)
+}
+
+/* 지하철설정 */
+.setting-items__title-area--subway .setting-items__title:nth-child(1), .setting-items__col-area--subway .setting-items__col:nth-child(1) {
+    width: 100px
+}
+
+.setting-items__title-area--subway .setting-items__title, .setting-items__col-area--subway .setting-items__col {
+    width: calc(50% - 50px);
+    width: -webkit-calc(50% - 50px)
+}
+
+/* 대학설정 */
+.setting-items__title-area--univ .setting-items__title:nth-of-type(1), .setting-items__col-area--univ .setting-items__col:nth-of-type(1) {
+    width: 35%
+}
+
+.setting-items__title-area--univ .setting-items__title:nth-of-type(2), .setting-items__col-area--univ .setting-items__col:nth-of-type(2) {
+    width: 65%
+}
+
+.setting-state__options {
+    position: relative;
+    height: 32px;
+    box-sizing: border-box;
+    margin: 0 20px;
+    padding: 0 0 12px;
+    text-align: right;
+    border-bottom: 1px solid #eaeef3
+}
+
+.setting-state__here {
+    position: relative;
+    display: inline-block;
+    height: 20px;
+    padding: 0 0 0 25px;
+    margin-right: 16px;
+    font-size: 15px;
+    font-family: HGSoftGGothicssi60g;
+    letter-spacing: 0;
+    vertical-align: top;
+    color: #4d5260;
+    line-height: 20px
+}
+
+html.ios .setting-state__here {
+    line-height: 22px
+}
+
+.setting-state__here:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    vertical-align: top;
+    background: url('//image.alba.kr/m/setting_icon_2022.png') no-repeat -90px -30px;
+    background-size: 120px 120px
+}
+
+.setting-state__dong .input {
+    vertical-align: top
+}
+
+.setting-state__dong .input label {
+    font-size: 15px;
+    font-family: HGSoftGGothicssi60g;
+    letter-spacing: 0;
+    color: #4d5260
+}
+
+html.ios .setting-state__dong .input label {
+    line-height: 22px
+}
+
+.setting-explain {
+    display: inline-block;
+    margin-left: -2px
+}
+
+.setting-explain__button {
+    display: block;
+    width: 15px;
+    height: 18px;
+    background-color: transparent;
+    font-size: 0;
+    color: transparent;
+    padding: 0
+}
+
+.setting-explain__button::before {
+    content: '';
+    display: block;
+    width: 15px;
+    height: 15px;
+    margin-top: 2px;
+    background: url('//image.alba.kr/m/setting_icon_2022.png') no-repeat 0 -60px;
+    background-size: 120px 120px
+}
+
+.setting-explain__area {
+    display: none;
+    z-index: 9;
+    position: absolute;
+    top: 29px;
+    right: -9px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1px solid #4d5260;
+    background: #fff
+}
+
+.setting-explain__area::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    right: 11px;
+    width: 10px;
+    height: 8px;
+    background: url('//image.alba.kr/m/setting_icon_2022.png') no-repeat -60px -90px;
+    background-size: 120px 120px
+}
+
+.setting-explain__contents {
+    display: block;
+    font-size: 13px;
+    text-align: left;
+    color: #000
+}
+
+.setting-explain__contents em {
+    display: block;
+    margin-top: 4px;
+    font-size: 12px;
+    color: #2e89e5
+}
+
+.setting-explain__close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 36px;
+    height: 36px;
+    font-size: 0;
+    color: transparent;
+    background-color: transparent
+}
+
+.setting-explain__close::before {
+    content: '';
+    display: -webkit-inline-box;
+    width: 16px;
+    height: 17px;
+    background: url('//image.alba.kr/m/setting_icon_2022.png') no-repeat -30px -60px;
+    background-size: 120px 120px
+}
+
+.setting-board {
+    z-index: 100;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    max-height: 162px;
+    min-height: 118px
+}
+
+.setting-board__title {
+    height: 44px;
+    box-sizing: border-box;
+    padding: 15px 16px 12px;
+    font-size: 13px;
+    font-family: HGSoftGGothicssi60g;
+    letter-spacing: 0;
+    border-top: 1px solid #a2aebf;
+    /*box-shadow:0 0 16px 0 rgb(0 0 0/8%);*/
+    color: #000;
+    background: #fafafa
+}
+
+.setting-board__title em {
+    color: #2e89e5
+}
+
+.setting-board__selected {
+    display: none;
+    position: relative;
+    background-color: #fafafa
+}
+
+.setting-board__selected.on {
+    display: block;
+    margin-top: -5px
+}
+
+.setting-board__button-area {
+    position: relative;
+    height: 75px;
+    padding: 10px 16px;
+    box-sizing: border-box;
+    border-top: 1px solid #f0f3f8;
+    background: #fff
+}
+
+.setting-board__button-area .setting-board__button--reset {
+    float: left;
+    position: relative;
+    width: 54px;
+    height: 54px;
+    padding-top: 9px;
+    margin-right: 8px;
+    font-size: 11px;
+    font-family: HGSoftGGothicssi60g;
+    letter-spacing: 0;
+    text-align: center;
+    box-sizing: border-box;
+    border: 1px solid #d3dae6;
+    border-radius: 6px;
+    vertical-align: top;
+    color: #777e8c
+}
+
+.setting-board__button-area .setting-board__button--reset:before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    margin: 0 auto 5px;
+    background: url('//image.alba.kr/m/setting_icon_2022.png') no-repeat 0 -90px;
+    background-size: 120px 120px
+}
+
+html.ios .setting-board__button-area .setting-board__button--reset:before {
+    margin-bottom: 4px
+}
+
+.setting-board__button-area .setting-board__button--save {
+    float: left;
+    width: calc(100% - 62px);
+    width: -webkit-calc(100% - 62px);
+    height: 54px;
+    box-sizing: border-box;
+    line-height: 54px;
+    font-size: 17px;
+    font-family: HGSoftGGothicssi60g;
+    letter-spacing: 0;
+    text-align: center;
+    border-radius: 6px;
+    border: 1px solid #ffe000;
+    vertical-align: top;
+    color: #000;
+    background-color: #fff230
+}
+
+.search-result {
+    margin-right: 3px
+}
+
+.selectView {
+    overflow-y: hidden;
+    overflow-x: auto;
+    padding: 0 16px 12px;
+    font-size: 0;
+    white-space: nowrap;
+    word-break: break-all
+}
+
+.selectView::-webkit-scrollbar {
+    display: none
+}
+
+.selectView li {
+    display: inline-block;
+    position: relative;
+    height: 36px;
+    padding: 0 34px 0 12px;
+    margin-left: 6px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 36px;
+    vertical-align: top;
+    color: #fff;
+    background-color: #3396fe
+}
+
+html.ios .selectView li {
+    line-height: 38px
+}
+
+.selectView li:first-child {
+    margin-left: 0
+}
+
+.select-view--category>li {
+    padding-right: 0
+}
+
+.selectView .viewDelBtn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 30px;
+    height: 36px;
+    font-size: 0;
+    line-height: 0
+}
+
+.selectView .viewDelBtn:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    background: url('//image.alba.kr/m/input_tag.png') no-repeat 0 -120px;
+    background-size: 20px 140px
+}
+
+.selectView .category__item {
+    position: relative;
+    display: inline-block;
+    padding-right: 34px
+}
+
+.selectView .category-first>i {
+    position: relative;
+    top: 10px;
+    display: inline-block;
+    width: 6px;
+    height: 11px;
+    margin: 0 4px;
+    vertical-align: 9px;
+    background: url('//image.alba.kr/m/setting_icon_2019.png') no-repeat -108px -72px;
+    background-size: 180px 144px
+}
+
+/* CASE 1. 직종레이어 - 타이틀 (인재) */
+.setting-occupation-wrap {
+    overflow-y: scroll;
+    height: calc(100% - 62px);
+    height: -webkit-calc(100% - 62px)
+}
+
+.setting-occupation-wrap.expand {
+    height: calc(100% - 104px);
+    height: -webkit-calc(100% - 104px)
+}
+
+/* CASE 2. 직종레이어 - 타이틀+검색바 (이력서,공고등록) */
+.setting-occupation-wrap.type2scroll {
+    overflow-y: scroll;
+    height: calc(100% - 114px);
+    height: -webkit-calc(100% - 114px)
+}
+
+.setting-occupation-wrap.type2scroll.expand {
+    height: calc(100% - 156px);
+    height: -webkit-calc(100% - 156px)
+}
+
+/* CASE 3. 직종레이어 - 타이틀+검색바+옵션 (채용관) */
+.setting-occupation-wrap.type3scroll {
+    overflow-y: scroll;
+    height: calc(100% - 146px);
+    height: -webkit-calc(100% - 146px)
+}
+
+.setting-occupation-wrap.type3scroll.expand {
+    height: calc(100% - 188px);
+    height: -webkit-calc(100% - 188px)
+}
+
+.setting-occupation-inner {
+    padding: 0 20px 28px
+}
+
+.setting-occupation__title {
+    padding: 28px 0 6px;
+    font-family: HGSoftGGothicssi80g;
+    letter-spacing: 0;
+    font-size: 16px;
+    color: #000
+}
+
+.setting-occupation:first-child .setting-occupation__title {
+    padding-top: 20px
+}
+
+.setting-occupation__list {
+    display: flex;
+    display: -webkit-flex;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    margin: 0 -3px
+}
+
+.setting-occupation__list li {
+    overflow: hidden;
+    position: relative;
+    flex-basis: calc(50% - 6px);
+    -webkit-flex-basis: calc(50% - 6px);
+    height: 44px;
+    line-height: 42px;
+    margin: 6px 3px 0
+}
+
+html.ios .setting-occupation__list li {
+    line-height: 46px
+}
+
+.setting-occupation__list li input[type="checkbox"] {
+    position: absolute;
+    top: 0;
+    left: 0
+}
+
+.setting-occupation__list li input[type="checkbox"] + label {
+    overflow: hidden;
+    display: block;
+    height: 44px;
+    padding: 0 5px;
+    box-sizing: border-box;
+    border: 1px solid #e1e7f0;
+    border-radius: 6px;
+    font-size: 15px;
+    text-align: center;
+    color: #4d5260;
+    background-color: #fff;
+    white-space: nowrap;
+    text-overflow: ellipsis
+}
+
+.setting-occupation__list li input[type="checkbox"]:checked + label {
+    font-weight: bold;
+    border: 1px solid #3396fe;
+    color: #2e89e5
+}
+
+.setting-occupation__list li input[type="checkbox"]:disabled + label {
+    color: #a2aebf;
+    background-color: #f3f4f7
+}
+
+/* 인재-직종레이어리스트 */
+#SelectJobKind .setting-occupation:first-child .setting-occupation__title {
+    padding-top: 0
+}
+
+/* 공고등록-직종레이어리스트 */
+.pop-wrap.biz .setview-search__list .ai-icon {
+    border: 1px solid #fff9cc;
+    color: #ddaf13;
+    background-color: #fdfbe8
+}
+
+.pop-wrap.biz .setting-board__button-area .setting-board__button--save {
+    color: #fff;
+    border: 1px solid #3396fe;
+    background-color: #3396fe
+}
+
+/* 지역/직종 검색레이어 */
+.setview {
+    display: none;
+    z-index: 99;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 24px 24px 0 0;
+    background-color: #fff
+}
+
+.setview.on {
+    display: block
+}
+
+.setview-head {
+    width: 100%;
+    height: 76px;
+    padding: 20px 20px 0;
+    box-sizing: border-box
+}
+
+.setview-head__prev {
+    z-index: 1;
+    position: absolute;
+    top: 20px;
+    left: 4px;
+    width: 44px;
+    height: 44px;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 0;
+    color: transparent
+}
+
+.setview-head__prev::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: url('//image.alba.kr/m/setting_icon_2022.png') no-repeat -60px 0;
+    background-size: 120px 120px
+}
+
+.setview-head__title {
+    overflow: hidden;
+    box-sizing: border-box;
+    height: 57px;
+    padding: 0;
+    font-weight: normal;
+    font-weight: normal;
+    font-size: 17px;
+    font-family: HGSoftGGothicssi60g;
+    letter-spacing: 0;
+    line-height: 57px;
+    color: #000
+}
+
+.setview-search {
+    overflow: hidden;
+    position: relative;
+    padding-left: 28px
+}
+
+.setview-search::after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    width: 24px;
+    height: 24px;
+    margin-top: -12px;
+    background: url('//image.alba.kr/m/setting_icon_2022.png') no-repeat 0 0;
+    background-size: 120px 120px
+}
+
+.setview-search .setview-search__input {
+    width: 100%;
+    height: 44px;
+    padding: 0 44px 0 12px;
+    box-sizing: border-box;
+    border-radius: 6px;
+    border: 1px solid #d3dae6;
+    -webkit-appearance: none;
+    font-size: 15px;
+    line-height: normal;
+    color: #000
+}
+
+.setview-search .setview-search__input:focus {
+    border-color: #3396fe
+}
+
+.setview-search .setview-search__input::-webkit-input-placeholder {
+    font-family: HGSoftGGothicssi60g;
+    letter-spacing: 0;
+    color: #9096a1
+}
+
+.setview-search .setview-search__input-del {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 44px;
+    height: 44px;
+    box-sizing: border-box;
+    padding: 12px;
+    font-size: 0;
+    color: transparent
+}
+
+.setview-search .setview-search__input-del::after {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: url('//image.alba.kr/m/setting_icon_2022.png') no-repeat;
+    background-position: -30px 0;
+    background-size: 120px 120px
+}
+
+.setview-search.value::after {
+    display: none
+}
+
+.setview-search.value .setview-search__input-del {
+    display: block
+}
+
+.setview-container {
+    overflow-y: auto;
+    height: calc(100% - 238px);
+    height: -webkit-calc(100% - 238px)
+}
+
+/* 최근등록한 업직종 */
+.setview-recommend {
+    display: none;
+    padding: 0 20px
+}
+
+.setview-recommend__title {
+    padding: 16px 0 12px;
+    font-size: 16px;
+    font-family: HGSoftGGothicssi80g;
+    letter-spacing: 0;
+    border-bottom: 1px solid #eaeef3;
+    color: #000
+}
+
+.setview-recommend__title em {
+    color: #2e89e5
+}
+
+.setview-recommend__list {
+    padding-top: 4px;
+    font-size: 0
+}
+
+.setview-recommend__list li {
+    position: relative;
+    display: inline-block;
+    margin: 8px 8px 0 0
+}
+
+.setview-recommend__list li:last-child {
+    margin-right: 0
+}
+
+.setview-recommend__input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0
+}
+
+.setview-recommend__label {
+    display: block;
+    height: 36px;
+    padding: 0 16px 0 8px;
+    box-sizing: border-box;
+    border: 1px solid #e1e7f0;
+    border-radius: 18px;
+    font-size: 14px;
+    line-height: 34px;
+    color: #335780;
+    background-color: #fff
+}
+
+html.ios .setview-recommend__label {
+    line-height: 36px
+}
+
+.setview-recommend__label::before {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin: 7px 4px 0 0;
+    vertical-align: top;
+    background: url('//image.alba.kr/m/input_tag.png') no-repeat 0 0;
+    background-size: 20px auto
+}
+
+.setview-recommend__input:checked + .setview-recommend__label {
+    border-color: #3396fe;
+    color: #2e89e5;
+    background-color: #eff6fe
+}
+
+.setview-recommend__input:checked + .setview-recommend__label::before {
+    background-position: 0 -60px
+}
+
+.setview-recommend__none {
+    padding-top: 50px;
+    font-size: 15px;
+    text-align: center;
+    line-height: 1.4;
+    color: #9096a1
+}
+
+.setview-recommend__none::before {
+    content: '';
+    display: block;
+    margin: 0 auto 20px;
+    width: 60px;
+    height: 55px;
+    background: url('//image.alba.kr/m/icon_search_noinfo.png') no-repeat 0 0;
+    background-size: 60px 55px
+}
+
+.setview-search__list-wrap {
+    display: none
+}
+
+.setview-search__guidetext {
+    display: none;
+    margin: 0 20px;
+    padding: 13px 0 12px;
+    font-family: HGSoftGGothicssi60g;
+    font-size: 13px;
+    letter-spacing: 0;
+    border-bottom: 1px solid #edf0f2;
+    color: #9096a1
+}
+
+.setview-search__list {
+    margin: 0 20px
+}
+
+.setview-search__list li {
+    border-bottom: 1px solid #edf0f2
+}
+
+.setview-search__list li input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0
+}
+
+.setview-search__list li label {
+    display: block;
+    padding: 12px 0;
+    font-size: 16px;
+    color: #000
+}
+
+html.ios .setview-search__list li label {
+    padding: 14px 0 10px
+}
+
+.setview-search__list li label>strong {
+    font-weight: normal;
+    color: #2e89e5
+}
+
+.setview-search__list .ai-icon {
+    position: relative;
+    top: -2px;
+    display: inline-block;
+    height: 18px;
+    padding: 0 6px;
+    line-height: 16px;
+    font-size: 12px;
+    font-family: HGSoftGGothicssi60g;
+    letter-spacing: 0;
+    box-sizing: border-box;
+    border-radius: 13px;
+    border: 1px solid #d9f1f3;
+    color: #00a6b0;
+    background-color: #f2fafb
+}
+
+.setview-search__none {
+    display: none;
+    padding-top: 36px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 1.4;
+    color: #9096a1
+}
+
+.setview-search__none::before {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 55px;
+    margin: 0 auto 12px;
+    background: url('//image.alba.kr/m/icon_search_noinfo.png') no-repeat 0 0;
+    background-size: 60px 55px
+}

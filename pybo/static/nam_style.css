@@ -1,0 +1,2 @@
+.nam_button { display: flex; justify-content: space-between; align-items: center; padding: 12px; border-radius: 6px; }
+.nam_right_button { display: flex; justify-content: right }
